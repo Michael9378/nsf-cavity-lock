@@ -1,0 +1,36 @@
+cd /opt/redpitaya/www/apps/cavity-locker/
+make INSTALL_DIR=/opt/redpitaya
+
+
+
+
+Inputs:
+	manual or automatic mode
+
+	Begin scan
+	Show scanned voltages
+	Flag results when a reading comes in
+	if no scans found
+		check alignment of cavity, no voltages found for cavity
+	if multiple results, choose result closest to middle of voltage range
+
+	start pid controller
+	show voltage and error signal
+	show pid values
+	
+
+
+
+	Bool - manual or automatic mode
+	Bool - isPIDActive
+	
+	eventHandler/Trigger - start scan
+	eventHandler/Trigger - stop PID controller (brings entire thing back to the pres-scan state)
+	
+	int[] - voltages found that produce resonance (i dont know if this will be just 1 voltage or multiple)
+	
+	int - voltage output (will be set by voltages found, choose the voltage closest to the middle of our voltage output range 0-100v, or set with manual voltage from user)
+	int - error output
+	int - P value of pid
+	int - I value of pid
+	int - D value of pid
